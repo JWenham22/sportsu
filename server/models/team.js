@@ -3,23 +3,19 @@ const mongoose = require('mongoose');
 
 const teamSchema = mongoose.Schema({
     name: {
-        type: string,
+        type: String,
         required: true 
     },
     sport: {
-        type: string,
+        type: String,
         required: true
     },
     league: {
-        type: string,
+        type: String,
         required: true
     },
     stadium: {
-        type: string,
-        required: true
-    },
-    badge: {
-        type: string,
+        type: String,
         required: true
     }
 });

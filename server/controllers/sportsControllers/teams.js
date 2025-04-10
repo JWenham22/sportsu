@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Team = require('../../models/sport');
+const Team = require('../../models/team');
 
 const API_KEY = "3";
 
@@ -22,8 +22,7 @@ router.get('/search', async (req, res) => {
             name: teamData.strTeam,
             sport: teamData.strSport,
             league: teamData.strLeague,
-            stadium: teamData.strStadium,
-            badge: teamData.strTeamBadge
+            stadium: teamData.strStadium
         });
 
         const savedTeam = await newTeam.save();
