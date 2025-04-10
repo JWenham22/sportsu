@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Sport = require('../models/sport');
+const Sport = require('../../models/sport');
 
 
 router.get('/', async (req, res) => {
@@ -23,19 +23,6 @@ router.get('/:id', async (req, res) => {
 
     } catch (error) {
         res.status(500).json({ error: error.message });
-    }
-});
-
-router.post('/', async (req, res) => {
-    const { name, image } = req.body;
-    const newSport = new Sport({ name, image });
-
-    try {
-        const savedSport = await newSport.save();
-        res.status(200).json(savedSport);
-
-    } catch (error) {
-        res.status(400).json({ error: error.message })
     }
 });
 

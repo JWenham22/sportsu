@@ -6,11 +6,19 @@ const teamSchema = mongoose.Schema({
         type: string,
         required: true 
     },
-    stadium: {
+    sport: {
         type: string,
         required: true
     },
     league: {
+        type: string,
+        required: true
+    },
+    stadium: {
+        type: string,
+        required: true
+    },
+    badge: {
         type: string,
         required: true
     }

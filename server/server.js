@@ -8,10 +8,11 @@ const logger = require('morgan');
 const port = 4000;
 
 // Import Routers
-const authRouter = require('./controllers/auth.js');
-const testJwtRouter = require('./controllers/test-jwt.js');
-const usersRouter = require('./controllers/users.js');
-const sportsRouter = require('./controllers/sports.js');
+const authRouter = require('./controllers/userControllers/auth.js');
+const testJwtRouter = require('./controllers/userControllers/test-jwt.js');
+const usersRouter = require('./controllers/userControllers/users.js');
+const sportsRouter = require('./controllers/sportsControllers/sports.js');
+const teamsRouter = require('./controllers/sportsControllers/teams.js');
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI);
@@ -28,7 +29,8 @@ app.use(logger('dev'));
 app.use('/auth', authRouter);
 app.use('/test-jwt', testJwtRouter);
 app.use('/users', usersRouter);
-app.use('./sports', sportsRouter);
+app.use('/sports', sportsRouter);
+app.use('/teams', teamsRouter);
 
 // Start the server and listen on port 4000
 app.listen(port, () => {
