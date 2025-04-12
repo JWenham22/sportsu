@@ -24,6 +24,7 @@ mongoose.connection.on('connected', () => {
 app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
+app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/auth', authRouter);

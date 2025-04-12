@@ -7,19 +7,23 @@ const User = require('../../models/user');
 
 const saltRounds = 12;
 
-router.post('/', async (req, res) => {
+router.post('/sign-up', async (req, res) => {
+    console.log(req.body);
     try {
         
         const userInDatabase = await User.findOne({ username: req.body.username });
 
-        if (userInDatbase) {
+        if (userInDatabase) {
             return res.status(409).json({ error: 'Username is already taken.' });
         }
 
+        const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
+
         const user = await User.create({
             username: req.body.username,
-            hashedPassword: bcrypt.hashSync(req.body.password, saltRounds)
+            hashedPassword: hashedPassword
         });
+
 
         const payload = { username: user.username, _id: user._id };
 
