@@ -22,4 +22,6 @@ const playerSchema = mongoose.Schema({
         type: Date,
         required: true
     }
-})
+});
+
+module.exports = mongoose.model('Player', playerSchema);
