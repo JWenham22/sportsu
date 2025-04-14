@@ -13,6 +13,7 @@ const testJwtRouter = require('./controllers/userControllers/test-jwt.js');
 const usersRouter = require('./controllers/userControllers/users.js');
 const sportsRouter = require('./controllers/sportsControllers/sports.js');
 const teamsRouter = require('./controllers/sportsControllers/teams.js');
+const playersRouter = require('./controllers/sportsControllers/players.js');
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI);
@@ -32,6 +33,7 @@ app.use('/test-jwt', testJwtRouter);
 app.use('/users', usersRouter);
 app.use('/sports', sportsRouter);
 app.use('/teams', teamsRouter);
+app.use('/players', playerRouter);
 
 // Start the server and listen on port 4000
 app.listen(port, () => {
